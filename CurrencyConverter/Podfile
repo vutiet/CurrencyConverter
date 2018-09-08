@@ -1,0 +1,18 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '10.0'
+use_frameworks!
+# ignore all warnings from all pods
+inhibit_all_warnings!
+
+def install_pods
+    pod 'Alamofire'
+    pod 'ObjectMapper'
+    pod 'AlamofireObjectMapper'
+    pod 'RealmSwift'
+    pod 'ObjectMapper+Realm'
+    pod 'Material'
+end
+
+target 'CurrencyConverter' do
+    install_pods
+end
