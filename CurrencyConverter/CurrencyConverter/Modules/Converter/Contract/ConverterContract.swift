@@ -19,6 +19,7 @@ protocol ConverterPresentationProtocol: class {
     func loadCurrencyRates()
     func stopLoadingCurrencyRates()
     func convert(_ amount: Double)
+    func moveRateViewModelToFirst(_ rateViewModel: RateViewModel)
 }
 
 protocol ConverterInteractorProtocol: class {

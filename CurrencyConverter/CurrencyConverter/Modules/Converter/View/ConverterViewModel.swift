@@ -34,4 +34,10 @@ class ConverterViewModel {
             }
         }
     }
+    
+    func moveRateViewModelToFirst(_ rateViewModel: RateViewModel) {
+        if let index = rateViewModels.index(where: { $0.currency == rateViewModel.currency }) {
+            self.rateViewModels.swapAt(0, index)
+        }
+    }
 }

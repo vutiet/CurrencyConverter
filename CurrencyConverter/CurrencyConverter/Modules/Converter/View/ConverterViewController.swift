@@ -29,6 +29,10 @@ class ConverterViewController: BaseViewController, StoryboardLoadable {
     override func onAppWillResignActive() {
         presenter?.stopLoadingCurrencyRates()
     }
+    
+    private func setupTableView() {
+        
+    }
 }
 
 extension ConverterViewController: ConverterViewProtocol {
@@ -54,9 +58,21 @@ extension ConverterViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CurrencyRateId", for: indexPath)
         if let currencyRateViewModel = getRateForIndexPath(indexPath) {
             cell.textLabel?.text = "\(currencyRateViewModel.currency!) - \(currencyRateViewModel.currencyDescription!): \(currencyRateViewModel.rate!)"
+            
         }
-        
+        cell.selectionStyle = .none
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        if let rateViewModel = getRateForIndexPath(indexPath) {
+            let topIndexPath = IndexPath(row: 0, section: 0)
+            tableView.beginUpdates()
+            tableView.moveRow(at: indexPath, to: topIndexPath)
+            presenter?.moveRateViewModelToFirst(rateViewModel)
+            tableView.endUpdates()
+        }
     }
     
     private func getRateForIndexPath(_ indexPath: IndexPath) -> RateViewModel? {
@@ -67,10 +83,4 @@ extension ConverterViewController {
         return nil
     }
     
-    private func getRatesCount() -> Int {
-        if let count = presenter?.getCurrentRates()?.rates.count {
-            return count + 1 // need to display base rate as well
-        }
-        return 0
-    }
 }

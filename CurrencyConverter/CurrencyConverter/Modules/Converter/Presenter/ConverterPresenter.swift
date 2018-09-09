@@ -40,6 +40,10 @@ extension ConverterPresenter: ConverterPresentationProtocol {
     func stopLoadingCurrencyRates() {
         interactor?.stopFetchingCurrencyRate()
     }
+    
+    func moveRateViewModelToFirst(_ rateViewModel: RateViewModel) {
+        self.converterViewModel?.moveRateViewModelToFirst(rateViewModel)
+    }
 }
 
 extension ConverterPresenter: ConverterInteractorOutputProtocol {
