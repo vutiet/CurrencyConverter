@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ConverterViewController: BaseViewController, StoryboardLoadable {
+class ConverterViewController: UITableViewController, StoryboardLoadable {
 
     // MARK: Properties
 
@@ -19,6 +19,7 @@ class ConverterViewController: BaseViewController, StoryboardLoadable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
 }
 
