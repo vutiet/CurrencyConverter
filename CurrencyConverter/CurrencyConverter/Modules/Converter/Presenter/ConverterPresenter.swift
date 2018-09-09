@@ -16,12 +16,17 @@ class ConverterPresenter {
     var interactor: ConverterInteractorProtocol?
     
     var currencyRates: Rates?
+    var converterViewModel: ConverterViewModel?
 }
 
 extension ConverterPresenter: ConverterPresentationProtocol {
     
     func getCurrentRates() -> Rates? {
         return self.currencyRates
+    }
+    
+    func getConverterViewModel() -> ConverterViewModel {
+        return self.converterViewModel ?? ConverterViewModel()
     }
     
     func loadCurrencyRates() {
@@ -41,6 +46,11 @@ extension ConverterPresenter: ConverterInteractorOutputProtocol {
     
     func onFetchCurrencyRatesSuccess(currencyRates: Rates) {
         self.currencyRates = currencyRates
+        if (converterViewModel == nil) {
+            self.converterViewModel = ConverterViewModel.build(from: self.currencyRates!)
+        } else {
+            self.converterViewModel?.update(from: self.currencyRates!)
+        }
         view?.updateRates()
     }
     

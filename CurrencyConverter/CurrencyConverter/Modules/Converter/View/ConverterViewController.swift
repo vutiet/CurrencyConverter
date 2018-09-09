@@ -13,7 +13,7 @@ class ConverterViewController: BaseViewController, StoryboardLoadable {
 
     // MARK: Properties
 
-    var presenter: ConverterPresentationProtocol?    
+    var presenter: ConverterPresentationProtocol?
     
     // MARK: Lifecycle
 
@@ -47,22 +47,30 @@ extension ConverterViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter?.getCurrentRates()?.rates.count ?? 0
+        return presenter?.getConverterViewModel().rateViewModels.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CurrencyRateId", for: indexPath)
-        if let currencyRate = getRateForIndexPath(indexPath) {
-            cell.textLabel?.text = "\(currencyRate.currency): \(currencyRate.rate)"
+        if let currencyRateViewModel = getRateForIndexPath(indexPath) {
+            cell.textLabel?.text = "\(currencyRateViewModel.currency!) - \(currencyRateViewModel.currencyDescription!): \(currencyRateViewModel.rate!)"
         }
         
         return cell
     }
     
-    private func getRateForIndexPath(_ indexPath: IndexPath) -> Rate? {
-        if let rate = presenter?.getCurrentRates()?.rates[indexPath.row] {
-            return rate
+    private func getRateForIndexPath(_ indexPath: IndexPath) -> RateViewModel? {
+        if let rateViewModel = presenter?.getConverterViewModel().rateViewModels[indexPath.row] {
+            return rateViewModel
         }
+        
         return nil
+    }
+    
+    private func getRatesCount() -> Int {
+        if let count = presenter?.getCurrentRates()?.rates.count {
+            return count + 1 // need to display base rate as well
+        }
+        return 0
     }
 }

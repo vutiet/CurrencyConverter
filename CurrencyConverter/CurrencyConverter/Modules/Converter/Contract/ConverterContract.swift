@@ -15,6 +15,7 @@ protocol ConverterViewProtocol: BaseViewProtocol {
 
 protocol ConverterPresentationProtocol: class {
     func getCurrentRates() -> Rates?
+    func getConverterViewModel() -> ConverterViewModel
     func loadCurrencyRates()
     func stopLoadingCurrencyRates()
     func convert(_ amount: Double)
