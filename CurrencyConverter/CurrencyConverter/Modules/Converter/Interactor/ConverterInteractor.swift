@@ -13,11 +13,10 @@ class ConverterInteractor {
     // MARK: Properties
 
     weak var output: ConverterInteractorOutputProtocol?
-}
-
-extension ConverterInteractor: ConverterInteractorProtocol {
     
-    func fetchCurrencyRates() {
+    var timer = Timer()
+    
+    @objc private func fetchCurrencyRates() {
         CurrencyRatesApiService.fetchCurrencyRates { [weak self] (currencyRates, error) in
             if let rates = currencyRates {
                 self?.output?.onFetchCurrencyRatesSuccess(currencyRates: rates)
@@ -26,4 +25,21 @@ extension ConverterInteractor: ConverterInteractorProtocol {
             }
         }
     }
+    
+    private func scheduledTimerForFetching(){
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.fetchCurrencyRates), userInfo: nil, repeats: true)
+    }
+}
+
+extension ConverterInteractor: ConverterInteractorProtocol {
+    
+    func startFetchingCurrencyRates() {
+        scheduledTimerForFetching()
+    }
+    
+    func stopFetchingCurrencyRate() {
+        self.timer.invalidate()
+    }
+    
+    
 }

@@ -25,14 +25,16 @@ extension ConverterPresenter: ConverterPresentationProtocol {
     }
     
     func loadCurrencyRates() {
-        interactor?.fetchCurrencyRates()
+        interactor?.startFetchingCurrencyRates()
     }
     
     func convert(_ amount: Double) {
         
     }
     
-    
+    func stopLoadingCurrencyRates() {
+        interactor?.stopFetchingCurrencyRate()
+    }
 }
 
 extension ConverterPresenter: ConverterInteractorOutputProtocol {

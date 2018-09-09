@@ -13,13 +13,21 @@ class ConverterViewController: BaseViewController, StoryboardLoadable {
 
     // MARK: Properties
 
-    var presenter: ConverterPresentationProtocol?
-
+    var presenter: ConverterPresentationProtocol?    
+    
     // MARK: Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.loadCurrencyRates()
+    }
+    
+    override func onAppWillTerminate() {
+        presenter?.stopLoadingCurrencyRates()
+    }
+    
+    override func onAppWillResignActive() {
+        presenter?.stopLoadingCurrencyRates()
     }
 }
 

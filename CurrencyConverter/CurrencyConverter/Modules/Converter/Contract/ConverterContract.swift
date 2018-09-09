@@ -16,11 +16,13 @@ protocol ConverterViewProtocol: BaseViewProtocol {
 protocol ConverterPresentationProtocol: class {
     func getCurrentRates() -> Rates?
     func loadCurrencyRates()
+    func stopLoadingCurrencyRates()
     func convert(_ amount: Double)
 }
 
 protocol ConverterInteractorProtocol: class {
-    func fetchCurrencyRates()
+    func startFetchingCurrencyRates()
+    func stopFetchingCurrencyRate()
 }
 
 protocol ConverterInteractorOutputProtocol: class {

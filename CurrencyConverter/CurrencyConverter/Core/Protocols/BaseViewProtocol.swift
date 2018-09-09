@@ -9,14 +9,9 @@
 import UIKit
 
 protocol BaseViewProtocol: class {
-//    func showLoading()
-//    func showLoading(withBackgroundColor backgroundColor: UIColor)
-//    func hideLoading()
-//    func showError(_ message: String?)
-//    func showEmptyView(withMessage message: String, andImageName imageName: String)
-//    func showEmptyView(withMessage message: String, andImage image: UIImage)
-//    func addGestureRecognizerToEmptyViewIcon(_ gesture: UITapGestureRecognizer)
-//    func hideEmptyView()
-//    func scrollToTopIfNeeded()
-//    func supportPortraitOnly() -> Bool
+    func showLoading()
+    func hideLoading()
+    func registerNotifications()
+    func deregisterNotifications()
+    
 }
