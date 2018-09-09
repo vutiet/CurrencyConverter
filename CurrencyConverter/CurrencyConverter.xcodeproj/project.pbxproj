@@ -20,6 +20,8 @@
 		B965155F21451D70003B5CDA /* ApiDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B965155E21451D70003B5CDA /* ApiDataManager.swift */; };
 		B96515642145206A003B5CDA /* CurrencyRatesApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96515632145206A003B5CDA /* CurrencyRatesApiService.swift */; };
 		B96515662145286C003B5CDA /* ListRateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96515652145286C003B5CDA /* ListRateTransform.swift */; };
+		B9651568214543DD003B5CDA /* ConverterPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9651567214543DD003B5CDA /* ConverterPresenterTests.swift */; };
+		B965156A21454402003B5CDA /* ListRateTransformTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B965156921454402003B5CDA /* ListRateTransformTests.swift */; };
 		B98020A12143AFDA00F5C5A3 /* ConverterContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98020982143AFD900F5C5A3 /* ConverterContract.swift */; };
 		B98020A22143AFDA00F5C5A3 /* ConverterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B980209A2143AFD900F5C5A3 /* ConverterPresenter.swift */; };
 		B98020A32143AFDA00F5C5A3 /* ConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B980209C2143AFD900F5C5A3 /* ConverterViewController.swift */; };
@@ -71,6 +73,8 @@
 		B965155E21451D70003B5CDA /* ApiDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiDataManager.swift; sourceTree = "<group>"; };
 		B96515632145206A003B5CDA /* CurrencyRatesApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRatesApiService.swift; sourceTree = "<group>"; };
 		B96515652145286C003B5CDA /* ListRateTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRateTransform.swift; sourceTree = "<group>"; };
+		B9651567214543DD003B5CDA /* ConverterPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterPresenterTests.swift; sourceTree = "<group>"; };
+		B965156921454402003B5CDA /* ListRateTransformTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRateTransformTests.swift; sourceTree = "<group>"; };
 		B98020982143AFD900F5C5A3 /* ConverterContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConverterContract.swift; sourceTree = "<group>"; };
 		B980209A2143AFD900F5C5A3 /* ConverterPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConverterPresenter.swift; sourceTree = "<group>"; };
 		B980209C2143AFD900F5C5A3 /* ConverterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConverterViewController.swift; sourceTree = "<group>"; };
@@ -170,6 +174,8 @@
 			children = (
 				B914E5452143AEA5007845AB /* CurrencyConverterTests.swift */,
 				B914E5472143AEA5007845AB /* Info.plist */,
+				B9651567214543DD003B5CDA /* ConverterPresenterTests.swift */,
+				B965156921454402003B5CDA /* ListRateTransformTests.swift */,
 			);
 			path = CurrencyConverterTests;
 			sourceTree = "<group>";
@@ -557,6 +563,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B914E5462143AEA5007845AB /* CurrencyConverterTests.swift in Sources */,
+				B965156A21454402003B5CDA /* ListRateTransformTests.swift in Sources */,
+				B9651568214543DD003B5CDA /* ConverterPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
