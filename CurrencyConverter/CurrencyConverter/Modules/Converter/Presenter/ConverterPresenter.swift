@@ -11,16 +11,40 @@ import Foundation
 class ConverterPresenter {
 
     // MARK: Properties
-
     weak var view: ConverterViewProtocol?
     var router: ConverterWireframeProtocol?
     var interactor: ConverterInteractorProtocol?
+    
+    var currencyRates: Rates?
 }
 
 extension ConverterPresenter: ConverterPresentationProtocol {
-    // TODO: implement presentation methods
+    
+    func getCurrentRates() -> Rates? {
+        return self.currencyRates
+    }
+    
+    func loadCurrencyRates() {
+        interactor?.fetchCurrencyRates()
+    }
+    
+    func convert(_ amount: Double) {
+        
+    }
+    
+    
 }
 
 extension ConverterPresenter: ConverterInteractorOutputProtocol {
-    // TODO: implement interactor output methods
+    
+    func onFetchCurrencyRatesSuccess(currencyRates: Rates) {
+        self.currencyRates = currencyRates
+        view?.updateRates()
+    }
+    
+    func onFetchCurrencyRatesFailure(errorMessage: String) {
+        // let keep it fail silently for now
+        // things can be done here: send error info to GA or similar service
+    }
+    
 }

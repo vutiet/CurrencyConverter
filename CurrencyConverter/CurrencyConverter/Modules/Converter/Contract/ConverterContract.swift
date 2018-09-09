@@ -9,21 +9,25 @@
 import Foundation
 
 protocol ConverterViewProtocol: BaseViewProtocol {
-    // TODO: Declare view methods
+    func updateRates()
+    
 }
 
 protocol ConverterPresentationProtocol: class {
-    // TODO: Declare presentation methods
+    func getCurrentRates() -> Rates?
+    func loadCurrencyRates()
+    func convert(_ amount: Double)
 }
 
 protocol ConverterInteractorProtocol: class {
-    // TODO: Declare use case methods
+    func fetchCurrencyRates()
 }
 
 protocol ConverterInteractorOutputProtocol: class {
-    // TODO: Declare interactor output methods
+    func onFetchCurrencyRatesSuccess(currencyRates: Rates)
+    func onFetchCurrencyRatesFailure(errorMessage: String)
 }
 
 protocol ConverterWireframeProtocol: class {
-    // TODO: Declare wireframe methods
+    // Navigate between screens 
 }

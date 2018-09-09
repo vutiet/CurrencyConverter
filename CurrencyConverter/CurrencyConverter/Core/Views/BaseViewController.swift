@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BaseViewController: UIViewController, BaseViewProtocol {
+class BaseViewController: UITableViewController, BaseViewProtocol {
     
 //    var loadingView: EOLLoadingView?
 //    var errorView:EOLErrorView!

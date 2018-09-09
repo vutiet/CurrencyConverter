@@ -16,5 +16,14 @@ class ConverterInteractor {
 }
 
 extension ConverterInteractor: ConverterInteractorProtocol {
-    // TODO: Implement use case methods
+    
+    func fetchCurrencyRates() {
+        CurrencyRatesApiService.fetchCurrencyRates { [weak self] (currencyRates, error) in
+            if let rates = currencyRates {
+                self?.output?.onFetchCurrencyRatesSuccess(currencyRates: rates)
+            } else {
+                self?.output?.onFetchCurrencyRatesFailure(errorMessage: error?.localizedDescription ?? "Unknown Error")
+            }
+        }
+    }
 }
