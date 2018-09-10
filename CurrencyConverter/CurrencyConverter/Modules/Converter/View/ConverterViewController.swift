@@ -43,13 +43,21 @@ extension ConverterViewController: ConverterViewProtocol {
                 indexPath.row != 0
             }
             if reloadedIndexPaths.count > 0 {
-                tableView.reloadRows(at: reloadedIndexPaths, with: .automatic)
-            } else {
+                for indexPath in reloadedIndexPaths {
+                    updateRateAtIndexPath(indexPath)
+                }
+            } else { // this case is the first time we update rates, need to reload the whole table view
                 tableView.reloadData()
             }
         }
     }
     
+    private func updateRateAtIndexPath(_ indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) as? ConverterCurrencyRateCell,
+            let currencyRateViewModel = presenter?.getCurrencyRateViewModel(at: indexPath.row) {
+            cell.configure(currencyRateViewModel: currencyRateViewModel)
+        }
+    }
 }
 
 // MARK: Tableview Delegate & DataSource
@@ -76,8 +84,6 @@ extension ConverterViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         tableView.endEditing(true)
-//        selectCurrentCurrency(at: indexPath.row, activateTextField: true)
-        
     }
     
     func selectCurrentCurrency(at index: Int) {
@@ -93,19 +99,6 @@ extension ConverterViewController {
             presenter?.moveRateViewModelToFirst(rateViewModel)
             tableView.endUpdates()
             tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
-            
-//            if activateTextField {
-//                let visibleCells = tableView.visibleCells
-//                for cell in visibleCells {
-//                    if let indexPath = tableView.indexPath(for: cell),
-//                        indexPath.row == 0,
-//                        cell.isKind(of: ConverterCurrencyRateCell.self) {
-//                        let rateCell = cell as! ConverterCurrencyRateCell
-//                        rateCell.activateInput()
-//                        break
-//                    }
-//                }
-//            }
         }
     }
     
@@ -115,14 +108,13 @@ extension ConverterViewController {
 extension ConverterViewController: ConverterCurrencyRateCellDelegate {
     
     func onCellTextFieldDidBeginEdit(_ cell: ConverterCurrencyRateCell) {
-        print("textFieldDidBeginEditing")
         if let indexPath = tableView.indexPath(for: cell) {
             selectCurrentCurrency(at: indexPath.row)
         }
     }
     
     func onCellTextFieldDidEndEdit(_ cell: ConverterCurrencyRateCell) {
-        print("textFieldDidEndEditing")
+
     }
     
     func onCellTextFieldValueDidChange(_ cell: ConverterCurrencyRateCell) {

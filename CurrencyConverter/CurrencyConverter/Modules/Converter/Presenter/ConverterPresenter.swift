@@ -44,6 +44,7 @@ extension ConverterPresenter: ConverterPresentationProtocol {
         self.currentCurrency = currency
         if let currencyRates = self.currencyRates {
             self.converterViewModel?.update(from: currencyRates, currency: self.currentCurrency, amount: self.currentAmount)
+            view?.updateRates()
         }
     }
     
