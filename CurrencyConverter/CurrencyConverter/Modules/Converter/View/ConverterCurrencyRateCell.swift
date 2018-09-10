@@ -20,6 +20,7 @@ class ConverterCurrencyRateCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var currencyLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var amountTextField: UITextField!
+    @IBOutlet weak var amountActiveView: UIView!
     
     weak var delegate: ConverterCurrencyRateCellDelegate?
 
@@ -36,6 +37,7 @@ class ConverterCurrencyRateCell: UITableViewCell, UITextFieldDelegate {
         currencyLabel.text = ""
         descriptionLabel.text = ""
         amountTextField.text = ""
+        amountActiveView.backgroundColor = UIColor.clear
     }
     
     func configure(currencyRateViewModel: CurrencyRateViewModel) {
@@ -63,10 +65,12 @@ class ConverterCurrencyRateCell: UITableViewCell, UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        amountActiveView.backgroundColor = UIColor.skyBlue()
         delegate?.onCellTextFieldDidBeginEdit(self)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        amountActiveView.backgroundColor = UIColor.clear
         delegate?.onCellTextFieldDidEndEdit(self)
     }
 }

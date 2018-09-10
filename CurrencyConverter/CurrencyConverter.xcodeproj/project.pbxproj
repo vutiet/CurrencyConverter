@@ -29,6 +29,7 @@
 		B965158E2146CB12003B5CDA /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B965158D2146CB12003B5CDA /* LoadingView.xib */; };
 		B96515902146CB70003B5CDA /* NibViewLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B965158F2146CB70003B5CDA /* NibViewLoadable.swift */; };
 		B96515922146CF64003B5CDA /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96515912146CF64003B5CDA /* UIViewExtension.swift */; };
+		B96515942146D472003B5CDA /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96515932146D472003B5CDA /* UIColorExtension.swift */; };
 		B98020A12143AFDA00F5C5A3 /* ConverterContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98020982143AFD900F5C5A3 /* ConverterContract.swift */; };
 		B98020A22143AFDA00F5C5A3 /* ConverterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B980209A2143AFD900F5C5A3 /* ConverterPresenter.swift */; };
 		B98020A32143AFDA00F5C5A3 /* ConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B980209C2143AFD900F5C5A3 /* ConverterViewController.swift */; };
@@ -89,6 +90,7 @@
 		B965158D2146CB12003B5CDA /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		B965158F2146CB70003B5CDA /* NibViewLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibViewLoadable.swift; sourceTree = "<group>"; };
 		B96515912146CF64003B5CDA /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		B96515932146D472003B5CDA /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		B98020982143AFD900F5C5A3 /* ConverterContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConverterContract.swift; sourceTree = "<group>"; };
 		B980209A2143AFD900F5C5A3 /* ConverterPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConverterPresenter.swift; sourceTree = "<group>"; };
 		B980209C2143AFD900F5C5A3 /* ConverterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConverterViewController.swift; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 			children = (
 				B965157821469239003B5CDA /* StringExtension.swift */,
 				B96515912146CF64003B5CDA /* UIViewExtension.swift */,
+				B96515932146D472003B5CDA /* UIColorExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -574,6 +577,7 @@
 				B98020A42143AFDA00F5C5A3 /* ConverterInteractor.swift in Sources */,
 				B96515922146CF64003B5CDA /* UIViewExtension.swift in Sources */,
 				B96515822146B227003B5CDA /* IsoCountryCodes.swift in Sources */,
+				B96515942146D472003B5CDA /* UIColorExtension.swift in Sources */,
 				B914E5312143AEA4007845AB /* AppDelegate.swift in Sources */,
 				B96515812146B227003B5CDA /* IsoCountries.swift in Sources */,
 				B965156E21454C16003B5CDA /* ConverterRateViewModel.swift in Sources */,

@@ -28,7 +28,7 @@ class LoadingView : UIView, NibViewLoadable
         
         let bar = CALayer()
         bar.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
-        bar.backgroundColor = UIColor.green.cgColor
+        bar.backgroundColor = UIColor.skyBlue().cgColor
         layer.addSublayer(bar)
         layer.instanceCount = 5
         layer.instanceTransform = CATransform3DMakeTranslation(25, 0, 0)
