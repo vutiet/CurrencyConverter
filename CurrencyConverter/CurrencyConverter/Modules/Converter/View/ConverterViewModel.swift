@@ -14,10 +14,10 @@ class ConverterViewModel {
     
     static func build(from currencyRates: CurrencyRates) -> ConverterViewModel {
         let viewModel = ConverterViewModel()
-        let baseRateViewModel = CurrencyRateViewModel(nationFlag: "", currencyDescription: "Euro", currency: currencyRates.base, rate: baseRate, amount: baseRate)
+        let baseRateViewModel = CurrencyRateViewModel(currencyName: CurrencyCountryMapper.currencyName(currencyCode: currencyRates.base), currencyCode: currencyRates.base, rate: baseRate, amount: baseRate)
         viewModel.currencyRateViewModels.append(baseRateViewModel)
         for (key, value) in currencyRates.rates {
-            let newRateModel = CurrencyRateViewModel(nationFlag: "", currencyDescription: key, currency: key, rate: value, amount: value)
+            let newRateModel = CurrencyRateViewModel(currencyName: CurrencyCountryMapper.currencyName(currencyCode: key), currencyCode: key, rate: value, amount: value)
             viewModel.currencyRateViewModels.append(newRateModel)
         }
         return viewModel
@@ -25,7 +25,7 @@ class ConverterViewModel {
     
     func update(from currencyRates: CurrencyRates, currency: String, amount: Double) {
         for i in 0..<currencyRateViewModels.count {
-            if let iCurrency = currencyRateViewModels[i].currency {
+            if let iCurrency = currencyRateViewModels[i].currencyCode {
                 if iCurrency == currencyRates.base {
                     currencyRateViewModels[i].rate = ConverterViewModel.baseRate
                 } else {
@@ -47,7 +47,7 @@ class ConverterViewModel {
     }
     
     func moveRateViewModelToFirst(_ rateViewModel: CurrencyRateViewModel) {
-        if let index = currencyRateViewModels.index(where: { $0.currency == rateViewModel.currency }) {
+        if let index = currencyRateViewModels.index(where: { $0.currencyCode == rateViewModel.currencyCode }) {
             self.currencyRateViewModels.swapAt(0, index)
         }
     }

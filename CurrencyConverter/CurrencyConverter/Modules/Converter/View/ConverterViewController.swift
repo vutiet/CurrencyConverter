@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+
 class ConverterViewController: BaseViewController, StoryboardLoadable {
 
     // MARK: Properties
@@ -19,6 +20,15 @@ class ConverterViewController: BaseViewController, StoryboardLoadable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let country = IsoCountryCodes.searchByCurrency(currency: "USD")
+        print(country)
+        
+        let euro = IsoCountryCodes.searchByCurrency(currency: "EUR")
+        dump(euro)
+        
+        let currencyName = CurrencyCountryMapper.currencyName(currencyCode: "CNY")
+        print(currencyName)
+        
         presenter?.loadCurrencyRates()
     }
     

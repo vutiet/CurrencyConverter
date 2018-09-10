@@ -25,8 +25,6 @@ class ConverterCurrencyRateCell: UITableViewCell, UITextFieldDelegate {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-//        self.amountTextField.addTarget(self, action: #selector(onTextFieldDidBeginEdit), for: .editingDidBegin)
-//        self.amountTextField.addTarget(self, action: #selector(onTextFieldDidEndEdit), for: .editingDidEnd)
         self.amountTextField.addTarget(self, action: #selector(onTextFieldValueDidChange), for: .editingChanged)
         self.amountTextField.delegate = self
     }
@@ -41,8 +39,9 @@ class ConverterCurrencyRateCell: UITableViewCell, UITextFieldDelegate {
     }
     
     func configure(currencyRateViewModel: CurrencyRateViewModel) {
-        currencyLabel.text = currencyRateViewModel.currency
-        descriptionLabel.text = currencyRateViewModel.currencyDescription
+        flagImageView.image = CurrencyCountryMapper.flag(currencyCode: currencyRateViewModel.currencyCode)
+        currencyLabel.text = currencyRateViewModel.currencyCode
+        descriptionLabel.text = currencyRateViewModel.currencyName
         amountTextField.text = String(format: "%.2f", currencyRateViewModel.amount ?? 0.0)
     }
     

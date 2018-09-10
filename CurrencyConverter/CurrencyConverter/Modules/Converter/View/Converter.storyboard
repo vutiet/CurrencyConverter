@@ -25,21 +25,21 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VPY-2v-8hu">
-                                            <rect key="frame" x="16" y="8" width="44" height="44"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VPY-2v-8hu">
+                                            <rect key="frame" x="16" y="15" width="30" height="30"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="44" id="J6t-Fs-HZZ"/>
-                                                <constraint firstAttribute="width" constant="44" id="vxJ-V9-53A"/>
+                                                <constraint firstAttribute="height" constant="30" id="J6t-Fs-HZZ"/>
+                                                <constraint firstAttribute="width" constant="30" id="vxJ-V9-53A"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EUR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fP1-l8-pHC">
-                                            <rect key="frame" x="68" y="8" width="203" height="21"/>
+                                            <rect key="frame" x="62" y="8" width="209" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Euro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tpp-9I-FfZ">
-                                            <rect key="frame" x="68" y="31" width="203" height="17"/>
+                                            <rect key="frame" x="62" y="31" width="209" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -65,7 +65,7 @@
                                         <constraint firstItem="Tpp-9I-FfZ" firstAttribute="leading" secondItem="fP1-l8-pHC" secondAttribute="leading" id="eAb-Zd-Nbw"/>
                                         <constraint firstAttribute="trailing" secondItem="VFY-5Y-bvO" secondAttribute="trailing" constant="16" id="eAz-kY-ccz"/>
                                         <constraint firstItem="fP1-l8-pHC" firstAttribute="top" secondItem="Yrl-ny-Oxt" secondAttribute="top" constant="8" id="qRn-Qg-fCR"/>
-                                        <constraint firstItem="fP1-l8-pHC" firstAttribute="leading" secondItem="VPY-2v-8hu" secondAttribute="trailing" constant="8" id="vSh-Ac-TYm"/>
+                                        <constraint firstItem="fP1-l8-pHC" firstAttribute="leading" secondItem="VPY-2v-8hu" secondAttribute="trailing" constant="16" id="vSh-Ac-TYm"/>
                                         <constraint firstItem="VFY-5Y-bvO" firstAttribute="centerY" secondItem="Yrl-ny-Oxt" secondAttribute="centerY" id="xpf-TG-ooM"/>
                                         <constraint firstItem="Tpp-9I-FfZ" firstAttribute="top" secondItem="fP1-l8-pHC" secondAttribute="bottom" constant="2" id="yeR-YJ-Ihn"/>
                                     </constraints>

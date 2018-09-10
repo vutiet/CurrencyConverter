@@ -47,13 +47,13 @@ class ConverterViewModelTests: XCTestCase {
         let viewModel = ConverterViewModel.build(from: self.currencyRates)
         
         let baseRateViewModel = viewModel.currencyRateViewModels[0] // first item must be base rate
-        XCTAssert(baseRateViewModel.currency == "EUR", "wrong base currency, should be EUR")
+        XCTAssert(baseRateViewModel.currencyCode == "EUR", "wrong base currency, should be EUR")
         XCTAssert(baseRateViewModel.rate == 1.0, "wrong base rate, should be 1.0")
         XCTAssert(baseRateViewModel.amount == 1.0, "wrong base amout, should be 1.0")
         
         for (offset: index, element: (key: key, value: value)) in self.currencyRates.rates.enumerated() {
             let rateViewModel = viewModel.currencyRateViewModels[index+1] // start from 1
-            XCTAssert(rateViewModel.currency == key, "wrong base currency, should be \(key)")
+            XCTAssert(rateViewModel.currencyCode == key, "wrong base currency, should be \(key)")
             XCTAssert(rateViewModel.rate == value, "wrong base rate, should be \(value)")
             XCTAssert(rateViewModel.amount == value, "wrong base amout, should be \(value)")
         }
@@ -67,13 +67,13 @@ class ConverterViewModelTests: XCTestCase {
         viewModel.update(from: self.currencyRates, currency: currency, amount: amount)
         
         let baseRateViewModel = viewModel.currencyRateViewModels[0] // first item should be base rate
-        XCTAssert(baseRateViewModel.currency == "EUR", "wrong base currency, should be EUR")
+        XCTAssert(baseRateViewModel.currencyCode == "EUR", "wrong base currency, should be EUR")
         XCTAssert(baseRateViewModel.rate == 1.0, "wrong base rate, should be 1.0")
         XCTAssert(baseRateViewModel.amount == (amount / rate), "wrong base amout, should be 1.0")
         
         for (offset: index, element: (key: key, value: value)) in self.currencyRates.rates.enumerated() {
             let rateViewModel = viewModel.currencyRateViewModels[index+1] // start from 1
-            XCTAssert(rateViewModel.currency == key, "wrong base currency, should be \(key)")
+            XCTAssert(rateViewModel.currencyCode == key, "wrong base currency, should be \(key)")
             XCTAssert(rateViewModel.rate == value, "wrong base rate, should be \(value)")
             XCTAssert(rateViewModel.amount == value * amount / rate, "wrong base amout, should be \(value * amount / rate)")
         }
@@ -83,14 +83,14 @@ class ConverterViewModelTests: XCTestCase {
         let viewModel = ConverterViewModel.build(from: self.currencyRates)
         
         let baseRateViewModel = viewModel.currencyRateViewModels[0]
-        XCTAssert(baseRateViewModel.currency == "EUR", "wrong currency, should be EUR") // before move
+        XCTAssert(baseRateViewModel.currencyCode == "EUR", "wrong currency, should be EUR") // before move
         
         let movedRateViewModel = viewModel.currencyRateViewModels[3]
         viewModel.moveRateViewModelToFirst(movedRateViewModel)
         let firstRateViewModel = viewModel.currencyRateViewModels[0]
-        XCTAssert(firstRateViewModel.currency == movedRateViewModel.currency, "wrong currency, should be \(movedRateViewModel.currency!)") // after move
+        XCTAssert(firstRateViewModel.currencyCode == movedRateViewModel.currencyCode, "wrong currency, should be \(movedRateViewModel.currencyCode!)") // after move
         
         let fourthRateViewModel = viewModel.currencyRateViewModels[3]
-        XCTAssert(fourthRateViewModel.currency == "EUR", "wrong currency, should be EUR") // after move
+        XCTAssert(fourthRateViewModel.currencyCode == "EUR", "wrong currency, should be EUR") // after move
     }
 }

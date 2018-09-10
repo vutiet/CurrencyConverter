@@ -11,6 +11,8 @@ def install_pods
     pod 'RealmSwift'
     pod 'ObjectMapper+Realm'
     pod 'Material'
+    pod 'FlagKit'
+
 end
 
 target 'CurrencyConverter' do

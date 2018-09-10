@@ -9,9 +9,8 @@
 import Foundation
 
 struct CurrencyRateViewModel {
-    var nationFlag: String?
-    var currencyDescription: String?
-    var currency: String?
+    var currencyName: String?
+    var currencyCode: String?
     var rate: Double?
     var amount: Double?
 }
