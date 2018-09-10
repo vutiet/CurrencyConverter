@@ -17,6 +17,8 @@ class ConverterPresenter {
     
     var currencyRates: CurrencyRates?
     var converterViewModel: ConverterViewModel?
+    var currentAmount: Double = 1.0
+    var currentCurrency: String = "EUR"
 }
 
 extension ConverterPresenter: ConverterPresentationProtocol {
@@ -34,7 +36,11 @@ extension ConverterPresenter: ConverterPresentationProtocol {
     }
     
     func convert(currency: String, amount: Double) {
-        
+        self.currentAmount = amount
+        self.currentCurrency = currency
+        if let currencyRates = self.currencyRates {
+            self.converterViewModel?.update(from: currencyRates, currency: self.currentCurrency, amount: self.currentAmount)
+        }
     }
     
     func stopLoadingCurrencyRates() {
@@ -53,8 +59,7 @@ extension ConverterPresenter: ConverterInteractorOutputProtocol {
         if (converterViewModel == nil) {
             self.converterViewModel = ConverterViewModel.build(from: self.currencyRates!)
         } else {
-//            self.converterViewModel?.update(from: self.currencyRates!)
-            self.converterViewModel?.update(from: self.currencyRates!, currency: "EUR", amount: 10)
+            self.converterViewModel?.update(from: self.currencyRates!, currency: self.currentCurrency, amount: self.currentAmount)
         }
         view?.updateRates()
     }
