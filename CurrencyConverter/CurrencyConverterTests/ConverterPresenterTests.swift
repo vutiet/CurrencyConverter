@@ -36,6 +36,6 @@ class ConverterPresenterTests: XCTestCase {
     }
     
     func testConvert() {
-        presenter.convert(100.0)
+        
     }
 }

@@ -51,13 +51,13 @@ extension ConverterViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter?.getConverterViewModel().rateViewModels.count ?? 0
+        return presenter?.getConverterViewModel().currencyRateViewModels.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CurrencyRateId", for: indexPath)
         if let currencyRateViewModel = getRateForIndexPath(indexPath) {
-            cell.textLabel?.text = "\(currencyRateViewModel.currency!) - \(currencyRateViewModel.currencyDescription!): \(currencyRateViewModel.rate!)"
+            cell.textLabel?.text = "\(currencyRateViewModel.currency!) - \(currencyRateViewModel.currencyDescription!): \(currencyRateViewModel.rate!) // \(currencyRateViewModel.amount!)"
             
         }
         cell.selectionStyle = .none
@@ -75,8 +75,8 @@ extension ConverterViewController {
         }
     }
     
-    private func getRateForIndexPath(_ indexPath: IndexPath) -> RateViewModel? {
-        if let rateViewModel = presenter?.getConverterViewModel().rateViewModels[indexPath.row] {
+    private func getRateForIndexPath(_ indexPath: IndexPath) -> CurrencyRateViewModel? {
+        if let rateViewModel = presenter?.getConverterViewModel().currencyRateViewModels[indexPath.row] {
             return rateViewModel
         }
         

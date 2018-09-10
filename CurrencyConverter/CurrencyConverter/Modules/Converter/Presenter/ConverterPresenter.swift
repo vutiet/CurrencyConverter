@@ -15,13 +15,13 @@ class ConverterPresenter {
     var router: ConverterWireframeProtocol?
     var interactor: ConverterInteractorProtocol?
     
-    var currencyRates: Rates?
+    var currencyRates: CurrencyRates?
     var converterViewModel: ConverterViewModel?
 }
 
 extension ConverterPresenter: ConverterPresentationProtocol {
     
-    func getCurrentRates() -> Rates? {
+    func getCurrentRates() -> CurrencyRates? {
         return self.currencyRates
     }
     
@@ -33,7 +33,7 @@ extension ConverterPresenter: ConverterPresentationProtocol {
         interactor?.startFetchingCurrencyRates()
     }
     
-    func convert(_ amount: Double) {
+    func convert(currency: String, amount: Double) {
         
     }
     
@@ -41,19 +41,20 @@ extension ConverterPresenter: ConverterPresentationProtocol {
         interactor?.stopFetchingCurrencyRate()
     }
     
-    func moveRateViewModelToFirst(_ rateViewModel: RateViewModel) {
+    func moveRateViewModelToFirst(_ rateViewModel: CurrencyRateViewModel) {
         self.converterViewModel?.moveRateViewModelToFirst(rateViewModel)
     }
 }
 
 extension ConverterPresenter: ConverterInteractorOutputProtocol {
     
-    func onFetchCurrencyRatesSuccess(currencyRates: Rates) {
+    func onFetchCurrencyRatesSuccess(currencyRates: CurrencyRates) {
         self.currencyRates = currencyRates
         if (converterViewModel == nil) {
             self.converterViewModel = ConverterViewModel.build(from: self.currencyRates!)
         } else {
-            self.converterViewModel?.update(from: self.currencyRates!)
+//            self.converterViewModel?.update(from: self.currencyRates!)
+            self.converterViewModel?.update(from: self.currencyRates!, currency: "EUR", amount: 10)
         }
         view?.updateRates()
     }

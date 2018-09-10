@@ -9,35 +9,46 @@
 import Foundation
 
 class ConverterViewModel {
-    var rateViewModels = [RateViewModel]()
+    static let baseRate = 1.0
+    var currencyRateViewModels = [CurrencyRateViewModel]()
     
-    static func build(from rates: Rates) -> ConverterViewModel {
+    static func build(from currencyRates: CurrencyRates) -> ConverterViewModel {
         let viewModel = ConverterViewModel()
-        
-        let baseRateViewModel = RateViewModel(nationFlag: "", currencyDescription: "Euro", currency: rates.base, rate: 1.00)
-        viewModel.rateViewModels.append(baseRateViewModel)
-        for (key, value) in rates.rates {
-            let newRateModel = RateViewModel(nationFlag: "", currencyDescription: key, currency: key, rate: value)
-            viewModel.rateViewModels.append(newRateModel)
+        let baseRateViewModel = CurrencyRateViewModel(nationFlag: "", currencyDescription: "Euro", currency: currencyRates.base, rate: baseRate, amount: baseRate)
+        viewModel.currencyRateViewModels.append(baseRateViewModel)
+        for (key, value) in currencyRates.rates {
+            let newRateModel = CurrencyRateViewModel(nationFlag: "", currencyDescription: key, currency: key, rate: value, amount: value)
+            viewModel.currencyRateViewModels.append(newRateModel)
         }
         return viewModel
     }
     
-    func update(from rates: Rates) {
-        for i in 0..<rateViewModels.count {
-            if let currency = rateViewModels[i].currency {
-                if currency == rates.base {
-                    rateViewModels[i].rate = 1.00
+    func update(from currencyRates: CurrencyRates, currency: String, amount: Double) {
+        for i in 0..<currencyRateViewModels.count {
+            if let iCurrency = currencyRateViewModels[i].currency {
+                if iCurrency == currencyRates.base {
+                    currencyRateViewModels[i].rate = ConverterViewModel.baseRate
                 } else {
-                    rateViewModels[i].rate = rates.rates[currency]
+                    currencyRateViewModels[i].rate = currencyRates.rates[iCurrency]
+                    
+                }
+                
+                if let rateOfCurrency = currencyRates.rates[currency] {
+                    currencyRateViewModels[i].amount = convert(amount: amount, fromCurrencyRate: rateOfCurrency, toCurrencyRate: currencyRateViewModels[i].rate!)
+                } else if currency == currencyRates.base {
+                    currencyRateViewModels[i].amount = convert(amount: amount, fromCurrencyRate: ConverterViewModel.baseRate, toCurrencyRate: currencyRateViewModels[i].rate!)
                 }
             }
         }
     }
     
-    func moveRateViewModelToFirst(_ rateViewModel: RateViewModel) {
-        if let index = rateViewModels.index(where: { $0.currency == rateViewModel.currency }) {
-            self.rateViewModels.swapAt(0, index)
+    private func convert(amount: Double, fromCurrencyRate: Double, toCurrencyRate: Double) -> Double {
+        return (amount * toCurrencyRate) / fromCurrencyRate
+    }
+    
+    func moveRateViewModelToFirst(_ rateViewModel: CurrencyRateViewModel) {
+        if let index = currencyRateViewModels.index(where: { $0.currency == rateViewModel.currency }) {
+            self.currencyRateViewModels.swapAt(0, index)
         }
     }
 }

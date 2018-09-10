@@ -33,7 +33,7 @@ import ObjectMapper_Realm
 //    }
 //}
 
-class Rates: Mappable {
+class CurrencyRates: Mappable {
     var base: String?
     var date: String?
     var rates = [String:Double]()

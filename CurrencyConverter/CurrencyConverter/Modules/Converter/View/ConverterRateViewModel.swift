@@ -8,9 +8,10 @@
 
 import Foundation
 
-struct RateViewModel {
+struct CurrencyRateViewModel {
     var nationFlag: String?
     var currencyDescription: String?
     var currency: String?
     var rate: Double?
+    var amount: Double?
 }

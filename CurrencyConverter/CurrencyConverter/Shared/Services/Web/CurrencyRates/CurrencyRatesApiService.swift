@@ -12,7 +12,7 @@ class CurrencyRatesApiService: NSObject {
     
     static let path = "latest?base=EUR"
     
-    public static func fetchCurrencyRates(completion: @escaping ((_ currencyRates: Rates?, _ error: Error?) -> ())) {
+    public static func fetchCurrencyRates(completion: @escaping ((_ currencyRates: CurrencyRates?, _ error: Error?) -> ())) {
         ApiDataManager.get(path: path, parameters: nil) { (rates, error) in
             completion(rates, error)
         }

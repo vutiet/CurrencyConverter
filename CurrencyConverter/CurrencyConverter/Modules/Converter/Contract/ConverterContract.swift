@@ -14,12 +14,12 @@ protocol ConverterViewProtocol: BaseViewProtocol {
 }
 
 protocol ConverterPresentationProtocol: class {
-    func getCurrentRates() -> Rates?
+    func getCurrentRates() -> CurrencyRates?
     func getConverterViewModel() -> ConverterViewModel
     func loadCurrencyRates()
     func stopLoadingCurrencyRates()
-    func convert(_ amount: Double)
-    func moveRateViewModelToFirst(_ rateViewModel: RateViewModel)
+    func convert(currency: String, amount: Double)
+    func moveRateViewModelToFirst(_ rateViewModel: CurrencyRateViewModel)
 }
 
 protocol ConverterInteractorProtocol: class {
@@ -28,7 +28,7 @@ protocol ConverterInteractorProtocol: class {
 }
 
 protocol ConverterInteractorOutputProtocol: class {
-    func onFetchCurrencyRatesSuccess(currencyRates: Rates)
+    func onFetchCurrencyRatesSuccess(currencyRates: CurrencyRates)
     func onFetchCurrencyRatesFailure(errorMessage: String)
 }
 
