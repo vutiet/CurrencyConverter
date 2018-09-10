@@ -26,6 +26,8 @@
 		B965156E21454C16003B5CDA /* ConverterRateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B965156D21454C16003B5CDA /* ConverterRateViewModel.swift */; };
 		B96515702146680E003B5CDA /* ConverterViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B965156F2146680E003B5CDA /* ConverterViewModelTests.swift */; };
 		B96515762146766F003B5CDA /* ConverterCurrencyRateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96515752146766F003B5CDA /* ConverterCurrencyRateCell.swift */; };
+		B965157921469239003B5CDA /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B965157821469239003B5CDA /* StringExtension.swift */; };
+		B965157B2146930A003B5CDA /* StringExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B965157A2146930A003B5CDA /* StringExtensionTests.swift */; };
 		B98020A12143AFDA00F5C5A3 /* ConverterContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98020982143AFD900F5C5A3 /* ConverterContract.swift */; };
 		B98020A22143AFDA00F5C5A3 /* ConverterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B980209A2143AFD900F5C5A3 /* ConverterPresenter.swift */; };
 		B98020A32143AFDA00F5C5A3 /* ConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B980209C2143AFD900F5C5A3 /* ConverterViewController.swift */; };
@@ -83,6 +85,8 @@
 		B965156D21454C16003B5CDA /* ConverterRateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterRateViewModel.swift; sourceTree = "<group>"; };
 		B965156F2146680E003B5CDA /* ConverterViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewModelTests.swift; sourceTree = "<group>"; };
 		B96515752146766F003B5CDA /* ConverterCurrencyRateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterCurrencyRateCell.swift; sourceTree = "<group>"; };
+		B965157821469239003B5CDA /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		B965157A2146930A003B5CDA /* StringExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionTests.swift; sourceTree = "<group>"; };
 		B98020982143AFD900F5C5A3 /* ConverterContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConverterContract.swift; sourceTree = "<group>"; };
 		B980209A2143AFD900F5C5A3 /* ConverterPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConverterPresenter.swift; sourceTree = "<group>"; };
 		B980209C2143AFD900F5C5A3 /* ConverterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConverterViewController.swift; sourceTree = "<group>"; };
@@ -185,6 +189,7 @@
 				B9651567214543DD003B5CDA /* ConverterPresenterTests.swift */,
 				B965156921454402003B5CDA /* ListRateTransformTests.swift */,
 				B965156F2146680E003B5CDA /* ConverterViewModelTests.swift */,
+				B965157A2146930A003B5CDA /* StringExtensionTests.swift */,
 			);
 			path = CurrencyConverterTests;
 			sourceTree = "<group>";
@@ -248,6 +253,14 @@
 			path = CurrencyRates;
 			sourceTree = "<group>";
 		};
+		B965157721469225003B5CDA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B965157821469239003B5CDA /* StringExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		B98020882143AF1900F5C5A3 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,6 +282,7 @@
 		B980208B2143AF6100F5C5A3 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				B965157721469225003B5CDA /* Extensions */,
 				B965155B21451D53003B5CDA /* Services */,
 				B96515532145126F003B5CDA /* Entities */,
 			);
@@ -568,6 +582,7 @@
 				B96515642145206A003B5CDA /* CurrencyRatesApiService.swift in Sources */,
 				B98020A32143AFDA00F5C5A3 /* ConverterViewController.swift in Sources */,
 				B96515572145129C003B5CDA /* Rate.swift in Sources */,
+				B965157921469239003B5CDA /* StringExtension.swift in Sources */,
 				B965155521451293003B5CDA /* CurrencyRates.swift in Sources */,
 				B98020A52143AFDA00F5C5A3 /* ConverterRouter.swift in Sources */,
 			);
@@ -580,6 +595,7 @@
 				B914E5462143AEA5007845AB /* CurrencyConverterTests.swift in Sources */,
 				B965156A21454402003B5CDA /* ListRateTransformTests.swift in Sources */,
 				B9651568214543DD003B5CDA /* ConverterPresenterTests.swift in Sources */,
+				B965157B2146930A003B5CDA /* StringExtensionTests.swift in Sources */,
 				B96515702146680E003B5CDA /* ConverterViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

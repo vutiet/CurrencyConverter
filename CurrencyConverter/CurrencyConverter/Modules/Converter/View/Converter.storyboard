@@ -53,7 +53,6 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                             <connections>
-                                                <action selector="textFieldValueDidChange:" destination="W5z-00-xvl" eventType="editingChanged" id="tOX-YQ-yxl"/>
                                                 <outlet property="delegate" destination="W5z-00-xvl" id="dzA-X2-hxu"/>
                                             </connections>
                                         </textField>

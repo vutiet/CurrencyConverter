@@ -75,7 +75,8 @@ extension ConverterViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        selectCurrentCurrency(at: indexPath.row)
+        tableView.endEditing(true)
+//        selectCurrentCurrency(at: indexPath.row, activateTextField: true)
         
     }
     
@@ -92,8 +93,19 @@ extension ConverterViewController {
             presenter?.moveRateViewModelToFirst(rateViewModel)
             tableView.endUpdates()
             tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
-            let firstCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! ConverterCurrencyRateCell
-            firstCell.activateInput()
+            
+//            if activateTextField {
+//                let visibleCells = tableView.visibleCells
+//                for cell in visibleCells {
+//                    if let indexPath = tableView.indexPath(for: cell),
+//                        indexPath.row == 0,
+//                        cell.isKind(of: ConverterCurrencyRateCell.self) {
+//                        let rateCell = cell as! ConverterCurrencyRateCell
+//                        rateCell.activateInput()
+//                        break
+//                    }
+//                }
+//            }
         }
     }
     
@@ -114,7 +126,11 @@ extension ConverterViewController: ConverterCurrencyRateCellDelegate {
     }
     
     func onCellTextFieldValueDidChange(_ cell: ConverterCurrencyRateCell) {
-        print("textFieldValueDidChange: \(cell.amountTextField.text)")
+        if let currency = cell.currencyLabel.text {
+            let amount = cell.amountTextField.text?.toDouble() ?? 0
+            presenter?.convert(currency: currency, amount: amount)
+        }
+        
     }
 
     

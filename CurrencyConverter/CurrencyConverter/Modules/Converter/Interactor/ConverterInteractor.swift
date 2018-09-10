@@ -15,6 +15,7 @@ class ConverterInteractor {
     weak var output: ConverterInteractorOutputProtocol?
     
     var timer = Timer()
+    let duration: TimeInterval = 1
     
     @objc private func fetchCurrencyRates() {
         CurrencyRatesApiService.fetchCurrencyRates { [weak self] (currencyRates, error) in
@@ -26,8 +27,8 @@ class ConverterInteractor {
         }
     }
     
-    private func scheduledTimerForFetching(){
-        timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.fetchCurrencyRates), userInfo: nil, repeats: true)
+    private func scheduledTimerForFetching() {
+        timer = Timer.scheduledTimer(timeInterval: duration, target: self, selector: #selector(self.fetchCurrencyRates), userInfo: nil, repeats: true)
     }
 }
 

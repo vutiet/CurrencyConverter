@@ -14,7 +14,7 @@ protocol ConverterCurrencyRateCellDelegate: class {
     func onCellTextFieldValueDidChange(_ cell: ConverterCurrencyRateCell)
 }
 
-class ConverterCurrencyRateCell: UITableViewCell {
+class ConverterCurrencyRateCell: UITableViewCell, UITextFieldDelegate {
     
     @IBOutlet weak var flagImageView: UIImageView!
     @IBOutlet weak var currencyLabel: UILabel!
@@ -25,9 +25,10 @@ class ConverterCurrencyRateCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.amountTextField.addTarget(self, action: #selector(onTextFieldDidBeginEdit), for: .editingDidBegin)
-        self.amountTextField.addTarget(self, action: #selector(onTextFieldDidEndEdit), for: .editingDidEnd)
+//        self.amountTextField.addTarget(self, action: #selector(onTextFieldDidBeginEdit), for: .editingDidBegin)
+//        self.amountTextField.addTarget(self, action: #selector(onTextFieldDidEndEdit), for: .editingDidEnd)
         self.amountTextField.addTarget(self, action: #selector(onTextFieldValueDidChange), for: .editingChanged)
+        self.amountTextField.delegate = self
     }
     
     
@@ -48,16 +49,25 @@ class ConverterCurrencyRateCell: UITableViewCell {
     func activateInput() {
         amountTextField.becomeFirstResponder()
     }
-    
-    @objc func onTextFieldDidBeginEdit() {
-        delegate?.onCellTextFieldDidBeginEdit(self)
-    }
-    
-    @objc func onTextFieldDidEndEdit() {
-        delegate?.onCellTextFieldDidEndEdit(self)
-    }
 
     @objc func onTextFieldValueDidChange() {
         delegate?.onCellTextFieldValueDidChange(self)
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let currentText = (textField.text ?? "") as NSString
+        let newText = currentText.replacingCharacters(in: range, with: string)
+        if newText.isEmpty {
+            return true // allow to delete all text in field
+        }
+        return newText.isValidNumberWithTwoDecimalPlaces()
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        delegate?.onCellTextFieldDidBeginEdit(self)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        delegate?.onCellTextFieldDidEndEdit(self)
     }
 }
