@@ -27,7 +27,7 @@ class ConverterInteractor {
     }
     
     private func scheduledTimerForFetching(){
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.fetchCurrencyRates), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.fetchCurrencyRates), userInfo: nil, repeats: true)
     }
 }
 

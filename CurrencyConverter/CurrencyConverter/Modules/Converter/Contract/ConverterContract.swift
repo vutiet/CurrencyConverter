@@ -14,9 +14,10 @@ protocol ConverterViewProtocol: BaseViewProtocol {
 }
 
 protocol ConverterPresentationProtocol: class {
-    func getCurrentRates() -> CurrencyRates?
-    func getConverterViewModel() -> ConverterViewModel
     func loadCurrencyRates()
+    func getCurrentRates() -> CurrencyRates?
+    func getNumberOfCurrencyViewModels() -> Int
+    func getCurrencyRateViewModel(at index: Int) -> CurrencyRateViewModel?
     func stopLoadingCurrencyRates()
     func convert(currency: String, amount: Double)
     func moveRateViewModelToFirst(_ rateViewModel: CurrencyRateViewModel)

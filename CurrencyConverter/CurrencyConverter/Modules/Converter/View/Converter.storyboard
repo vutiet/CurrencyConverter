@@ -18,13 +18,65 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CurrencyRateId" id="Lck-OE-w8j">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CurrencyRateId" id="Lck-OE-w8j" customClass="ConverterCurrencyRateCell" customModule="CurrencyConverter" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Lck-OE-w8j" id="Yrl-ny-Oxt">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VPY-2v-8hu">
+                                            <rect key="frame" x="16" y="8" width="44" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="J6t-Fs-HZZ"/>
+                                                <constraint firstAttribute="width" constant="44" id="vxJ-V9-53A"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EUR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fP1-l8-pHC">
+                                            <rect key="frame" x="68" y="8" width="203" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Euro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tpp-9I-FfZ">
+                                            <rect key="frame" x="68" y="31" width="203" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0.00" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VFY-5Y-bvO">
+                                            <rect key="frame" x="279" y="21.5" width="80" height="17"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="80" id="usO-6u-zHM"/>
+                                            </constraints>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                            <connections>
+                                                <action selector="textFieldValueDidChange:" destination="W5z-00-xvl" eventType="editingChanged" id="tOX-YQ-yxl"/>
+                                                <outlet property="delegate" destination="W5z-00-xvl" id="dzA-X2-hxu"/>
+                                            </connections>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="VPY-2v-8hu" firstAttribute="leading" secondItem="Yrl-ny-Oxt" secondAttribute="leading" constant="16" id="L5d-Td-Ypt"/>
+                                        <constraint firstItem="Tpp-9I-FfZ" firstAttribute="trailing" secondItem="fP1-l8-pHC" secondAttribute="trailing" id="UOY-tt-rFH"/>
+                                        <constraint firstItem="VPY-2v-8hu" firstAttribute="centerY" secondItem="Yrl-ny-Oxt" secondAttribute="centerY" id="V7w-aY-sV8"/>
+                                        <constraint firstItem="VFY-5Y-bvO" firstAttribute="leading" secondItem="fP1-l8-pHC" secondAttribute="trailing" constant="8" id="WYD-mr-DGb"/>
+                                        <constraint firstItem="Tpp-9I-FfZ" firstAttribute="leading" secondItem="fP1-l8-pHC" secondAttribute="leading" id="eAb-Zd-Nbw"/>
+                                        <constraint firstAttribute="trailing" secondItem="VFY-5Y-bvO" secondAttribute="trailing" constant="16" id="eAz-kY-ccz"/>
+                                        <constraint firstItem="fP1-l8-pHC" firstAttribute="top" secondItem="Yrl-ny-Oxt" secondAttribute="top" constant="8" id="qRn-Qg-fCR"/>
+                                        <constraint firstItem="fP1-l8-pHC" firstAttribute="leading" secondItem="VPY-2v-8hu" secondAttribute="trailing" constant="8" id="vSh-Ac-TYm"/>
+                                        <constraint firstItem="VFY-5Y-bvO" firstAttribute="centerY" secondItem="Yrl-ny-Oxt" secondAttribute="centerY" id="xpf-TG-ooM"/>
+                                        <constraint firstItem="Tpp-9I-FfZ" firstAttribute="top" secondItem="fP1-l8-pHC" secondAttribute="bottom" constant="2" id="yeR-YJ-Ihn"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="amountTextField" destination="VFY-5Y-bvO" id="fYX-kM-5ef"/>
+                                    <outlet property="currencyLabel" destination="fP1-l8-pHC" id="WL1-D3-gcY"/>
+                                    <outlet property="descriptionLabel" destination="Tpp-9I-FfZ" id="i9s-0I-lVE"/>
+                                    <outlet property="flagImageView" destination="VPY-2v-8hu" id="qKt-rq-hNy"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -35,7 +87,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SbH-73-XL2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="185" y="65"/>
+            <point key="canvasLocation" x="184.80000000000001" y="64.31784107946028"/>
         </scene>
     </scenes>
 </document>

@@ -27,12 +27,16 @@ extension ConverterPresenter: ConverterPresentationProtocol {
         return self.currencyRates
     }
     
-    func getConverterViewModel() -> ConverterViewModel {
-        return self.converterViewModel ?? ConverterViewModel()
-    }
-    
     func loadCurrencyRates() {
         interactor?.startFetchingCurrencyRates()
+    }
+    
+    func getNumberOfCurrencyViewModels() -> Int {
+        return self.converterViewModel?.currencyRateViewModels.count ?? 0
+    }
+    
+    func getCurrencyRateViewModel(at index: Int) -> CurrencyRateViewModel? {
+        return self.converterViewModel?.currencyRateViewModels[index]
     }
     
     func convert(currency: String, amount: Double) {
