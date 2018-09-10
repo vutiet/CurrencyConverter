@@ -10,6 +10,8 @@ import UIKit
 
 class BaseViewController: UITableViewController, BaseViewProtocol {
     
+    var loadingView: LoadingView?
+    
     init() {
         super.init(nibName:nil, bundle:nil)
     }
@@ -34,10 +36,25 @@ class BaseViewController: UITableViewController, BaseViewProtocol {
     }
     
     public func showLoading() {
+        if(self.loadingView == nil) {
+            let loadingView = UIView.fromNib(LoadingView.nibName) as! LoadingView
+            loadingView.frame = self.view.bounds
+            loadingView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            self.view.addSubview(loadingView)
+            self.loadingView = loadingView
+        }
     }
     
     
     public func hideLoading() {
+        if (self.loadingView != nil) {
+            UIView.animate(withDuration: 0.3, animations: {() -> Void in
+                self.loadingView?.alpha = 0
+            }, completion: {(_ finished: Bool) -> Void in
+                self.loadingView?.removeFromSuperview()
+                self.loadingView = nil
+            })
+        }
     }
     
     func registerNotifications() {
