@@ -8,9 +8,6 @@ def install_pods
     pod 'Alamofire'
     pod 'ObjectMapper'
     pod 'AlamofireObjectMapper'
-    pod 'RealmSwift'
-    pod 'ObjectMapper+Realm'
-    pod 'Material'
     pod 'FlagKit'
 
 end

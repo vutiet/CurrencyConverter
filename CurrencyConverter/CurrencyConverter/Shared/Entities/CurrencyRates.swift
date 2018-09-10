@@ -8,30 +8,6 @@
 
 import Foundation
 import ObjectMapper
-import RealmSwift
-import ObjectMapper_Realm
-
-//class Rates: Object, Mappable {
-//    @objc dynamic private(set) var base: String?
-//    @objc dynamic private(set) var date: String?
-//    private(set) var rates = List<Rate>()
-//
-//    // MARK: Init methods
-//    convenience required init?(map: Map) {
-//        self.init()
-//    }
-//
-//    override static func primaryKey() -> String? {
-//        return "base"
-//    }
-//
-//    // MARK: Mapping variables
-//    func mapping(map: Map) {
-//        base <- map["base"]
-//        date <- map["date"]
-//        rates <- (map["rates"], ListRateTransform())
-//    }
-//}
 
 class CurrencyRates: Mappable {
     var base: String?
@@ -42,10 +18,6 @@ class CurrencyRates: Mappable {
     convenience required init?(map: Map) {
         self.init()
     }
-    
-//    override static func primaryKey() -> String? {
-//        return "base"
-//    }
     
     // MARK: Mapping variables
     func mapping(map: Map) {
