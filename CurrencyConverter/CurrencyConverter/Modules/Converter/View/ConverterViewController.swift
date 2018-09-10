@@ -30,6 +30,10 @@ class ConverterViewController: BaseViewController, StoryboardLoadable {
         presenter?.stopLoadingCurrencyRates()
     }
     
+    override func onAppDidBecomeActive() {
+        presenter?.loadCurrencyRates()
+    }
+    
     private func setupTableView() {
         
     }

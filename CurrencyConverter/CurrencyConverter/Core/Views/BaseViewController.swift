@@ -9,8 +9,6 @@
 import UIKit
 
 class BaseViewController: UITableViewController, BaseViewProtocol {
-        
-    @IBOutlet weak var contentView:UIView!  //TODO: can't we use self.view instead of this outlet?
     
     init() {
         super.init(nibName:nil, bundle:nil)
@@ -43,13 +41,15 @@ class BaseViewController: UITableViewController, BaseViewProtocol {
     }
     
     func registerNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(onAppWillResignActive), name:NSNotification.Name.UIApplicationWillResignActive, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(onAppWillTerminate), name:NSNotification.Name.UIApplicationWillTerminate, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onAppWillResignActive), name:Notification.Name.UIApplicationWillResignActive, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onAppWillTerminate), name:Notification.Name.UIApplicationWillTerminate, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onAppDidBecomeActive), name: Notification.Name.UIApplicationDidBecomeActive, object: nil)
     }
     
     func deregisterNotifications() {
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIApplicationWillResignActive, object: nil)
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIApplicationWillTerminate, object: nil)
+        NotificationCenter.default.removeObserver(self, name: Notification.Name.UIApplicationWillResignActive, object: nil)
+        NotificationCenter.default.removeObserver(self, name: Notification.Name.UIApplicationWillTerminate, object: nil)
+        NotificationCenter.default.removeObserver(self, name: Notification.Name.UIApplicationDidBecomeActive, object: nil)
     }
     
     @objc func onAppWillResignActive() {
@@ -60,4 +60,7 @@ class BaseViewController: UITableViewController, BaseViewProtocol {
         
     }
 
+    @objc func onAppDidBecomeActive() {
+        
+    }
 }
