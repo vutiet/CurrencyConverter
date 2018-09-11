@@ -37,7 +37,7 @@ class ConverterCurrencyRateCell: UITableViewCell, UITextFieldDelegate {
         currencyLabel.text = ""
         descriptionLabel.text = ""
         amountTextField.text = ""
-        amountActiveView.backgroundColor = UIColor.clear
+        amountActiveView.backgroundColor = UIColor.lightGray
     }
     
     func configure(currencyRateViewModel: CurrencyRateViewModel) {
@@ -70,7 +70,7 @@ class ConverterCurrencyRateCell: UITableViewCell, UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        amountActiveView.backgroundColor = UIColor.clear
+        amountActiveView.backgroundColor = UIColor.lightGray
         delegate?.onCellTextFieldDidEndEdit(self)
     }
 }

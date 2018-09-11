@@ -45,10 +45,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0.00" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VFY-5Y-bvO">
-                                            <rect key="frame" x="259" y="19.5" width="100" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="100" id="usO-6u-zHM"/>
-                                            </constraints>
+                                            <rect key="frame" x="320.5" y="19.5" width="38.5" height="21"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
@@ -57,8 +54,8 @@
                                             </connections>
                                         </textField>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dj5-tu-3D8">
-                                            <rect key="frame" x="259" y="41.5" width="100" height="1"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <rect key="frame" x="320.5" y="41.5" width="38.5" height="1"/>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="mfZ-yc-1Vd"/>
                                             </constraints>
@@ -66,11 +63,11 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Dj5-tu-3D8" firstAttribute="top" secondItem="VFY-5Y-bvO" secondAttribute="bottom" constant="1" id="HFY-pZ-hZr"/>
+                                        <constraint firstAttribute="trailing" secondItem="Tpp-9I-FfZ" secondAttribute="trailing" constant="124" id="K4T-Sd-LeO"/>
                                         <constraint firstItem="VPY-2v-8hu" firstAttribute="leading" secondItem="Yrl-ny-Oxt" secondAttribute="leading" constant="16" id="L5d-Td-Ypt"/>
                                         <constraint firstItem="Dj5-tu-3D8" firstAttribute="leading" secondItem="VFY-5Y-bvO" secondAttribute="leading" id="OWD-Hk-nbV"/>
                                         <constraint firstItem="Tpp-9I-FfZ" firstAttribute="trailing" secondItem="fP1-l8-pHC" secondAttribute="trailing" id="UOY-tt-rFH"/>
                                         <constraint firstItem="VPY-2v-8hu" firstAttribute="centerY" secondItem="Yrl-ny-Oxt" secondAttribute="centerY" id="V7w-aY-sV8"/>
-                                        <constraint firstItem="VFY-5Y-bvO" firstAttribute="leading" secondItem="fP1-l8-pHC" secondAttribute="trailing" constant="8" id="WYD-mr-DGb"/>
                                         <constraint firstItem="Tpp-9I-FfZ" firstAttribute="leading" secondItem="fP1-l8-pHC" secondAttribute="leading" id="eAb-Zd-Nbw"/>
                                         <constraint firstAttribute="trailing" secondItem="VFY-5Y-bvO" secondAttribute="trailing" constant="16" id="eAz-kY-ccz"/>
                                         <constraint firstItem="fP1-l8-pHC" firstAttribute="top" secondItem="Yrl-ny-Oxt" secondAttribute="top" constant="8" id="qRn-Qg-fCR"/>
