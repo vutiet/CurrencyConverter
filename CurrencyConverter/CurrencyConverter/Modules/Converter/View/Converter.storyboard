@@ -33,13 +33,13 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EUR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fP1-l8-pHC">
-                                            <rect key="frame" x="62" y="8" width="189" height="21"/>
+                                            <rect key="frame" x="62" y="8" width="123" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Euro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tpp-9I-FfZ">
-                                            <rect key="frame" x="62" y="31" width="189" height="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Euro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="Tpp-9I-FfZ">
+                                            <rect key="frame" x="62" y="31" width="123" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -63,13 +63,14 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Dj5-tu-3D8" firstAttribute="top" secondItem="VFY-5Y-bvO" secondAttribute="bottom" constant="1" id="HFY-pZ-hZr"/>
-                                        <constraint firstAttribute="trailing" secondItem="Tpp-9I-FfZ" secondAttribute="trailing" constant="124" id="K4T-Sd-LeO"/>
+                                        <constraint firstAttribute="trailing" secondItem="Tpp-9I-FfZ" secondAttribute="trailing" constant="190" id="K4T-Sd-LeO"/>
                                         <constraint firstItem="VPY-2v-8hu" firstAttribute="leading" secondItem="Yrl-ny-Oxt" secondAttribute="leading" constant="16" id="L5d-Td-Ypt"/>
                                         <constraint firstItem="Dj5-tu-3D8" firstAttribute="leading" secondItem="VFY-5Y-bvO" secondAttribute="leading" id="OWD-Hk-nbV"/>
                                         <constraint firstItem="Tpp-9I-FfZ" firstAttribute="trailing" secondItem="fP1-l8-pHC" secondAttribute="trailing" id="UOY-tt-rFH"/>
                                         <constraint firstItem="VPY-2v-8hu" firstAttribute="centerY" secondItem="Yrl-ny-Oxt" secondAttribute="centerY" id="V7w-aY-sV8"/>
                                         <constraint firstItem="Tpp-9I-FfZ" firstAttribute="leading" secondItem="fP1-l8-pHC" secondAttribute="leading" id="eAb-Zd-Nbw"/>
                                         <constraint firstAttribute="trailing" secondItem="VFY-5Y-bvO" secondAttribute="trailing" constant="16" id="eAz-kY-ccz"/>
+                                        <constraint firstItem="VFY-5Y-bvO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fP1-l8-pHC" secondAttribute="trailing" constant="2" id="qJ9-7u-fF5"/>
                                         <constraint firstItem="fP1-l8-pHC" firstAttribute="top" secondItem="Yrl-ny-Oxt" secondAttribute="top" constant="8" id="qRn-Qg-fCR"/>
                                         <constraint firstItem="Dj5-tu-3D8" firstAttribute="trailing" secondItem="VFY-5Y-bvO" secondAttribute="trailing" id="t61-xK-4u9"/>
                                         <constraint firstItem="fP1-l8-pHC" firstAttribute="leading" secondItem="VPY-2v-8hu" secondAttribute="trailing" constant="16" id="vSh-Ac-TYm"/>

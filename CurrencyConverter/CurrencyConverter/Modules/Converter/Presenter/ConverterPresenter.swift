@@ -64,10 +64,10 @@ extension ConverterPresenter: ConverterInteractorOutputProtocol {
         self.currencyRates = currencyRates
         if (converterViewModel == nil) {
             self.converterViewModel = ConverterViewModel.build(from: self.currencyRates!)
-            view?.hideLoading() 
         } else {
             self.converterViewModel?.update(from: self.currencyRates!, currency: self.currentCurrency, amount: self.currentAmount)
         }
+        view?.hideLoading()
         view?.updateRates()
     }
     
